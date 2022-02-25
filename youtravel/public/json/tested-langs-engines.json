@@ -1,0 +1,30 @@
+[
+	{
+		"alpha2": "pt",
+		"engines": ["1", "2"]
+	},
+	{
+		"alpha2": "en",
+		"engines": ["1", "2", "3", "4"]
+	},
+	{
+		"alpha2": "de",
+		"engines": ["1", "2"]
+	},
+	{
+		"alpha2": "ar",
+		"engines": ["1"]
+	},
+	{
+		"alpha2": "fr",
+		"engines": ["1", "2", "3"]
+	},
+	{
+		"alpha2": "ru",
+		"engines": ["1", "2", "3"]
+	},
+	{
+		"alpha2": "ja",
+		"engines": ["1"]
+	}
+]
