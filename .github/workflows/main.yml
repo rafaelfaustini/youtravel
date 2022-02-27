@@ -1,5 +1,4 @@
-name: DEPLOY TO STAGING
-
+name: Deploy
 on:
   push:
     branches:
@@ -9,6 +8,8 @@ jobs:
   website-deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: Access project folder
+        run: cd youtravel
       - uses: actions/checkout@master
       - uses: actions/setup-node@master
       - name: Installing project dependencies
