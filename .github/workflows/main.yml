@@ -4,23 +4,24 @@ on:
     branches:
       - main
 
+defaults:
+  run:
+    working-directory: youtravel
+
 jobs:
   website-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Access project folder
-        run: cd youtravel
       - uses: actions/checkout@master
       - uses: actions/setup-node@master
       - name: Installing project dependencies
         run: npm install
       - name: Building the project
         run: npm run build
-      - name: Go to the compiled folder
-        run: cd dist/
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
           server: ${{ secrets.ftp_host }}
           username: ${{ secrets.ftp_username }}
           password: ${{ secrets.ftp_password }}
+          local-dir: 'dist/'
