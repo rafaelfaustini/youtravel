@@ -6,7 +6,7 @@
 	>
 		<div>
 			<b-navbar toggleable="lg" :type="navbarType" :variant="navbarVariant">
-				<b-navbar-brand href="#">YouTravel</b-navbar-brand>
+				<b-navbar-brand href="#">YouTravel {{ version }}</b-navbar-brand>
 
 				<b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
@@ -39,6 +39,8 @@
 
 <script>
 import DarkMode from "./components/DarkMode.vue";
+import { version } from "../package";
+
 export default {
 	name: "App",
 	components: { DarkMode },
@@ -75,6 +77,9 @@ export default {
 			}
 			return "dark";
 		},
+		version() {
+			return version;
+		},
 	},
 	watch: {
 		firstName: function (val) {
@@ -87,19 +92,20 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import "@/_variables.scss";
 #app {
 	position: absolute;
 	width: 100%;
 	height: 100%;
 }
 .theme-light {
-	background-color: #fff;
-	color: rgb(26, 26, 26);
+	background-color: $background-color;
+	color: $text-color;
 }
 .theme-dark {
-	background-color: rgba(32, 33, 36, 1);
-	color: rgb(201, 200, 200);
+	background-color: $dark-background-color;
+	color: $dark-text-color;
 	transition: all 1s ease-in;
 }
 </style>

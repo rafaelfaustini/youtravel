@@ -17,13 +17,13 @@ jobs:
       - name: Installing project dependencies
         run: npm install
       - name: Building the project
-        run: npm run build
+        run: npm prod
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
           server: ${{ secrets.ftp_host }}
           username: ${{ secrets.ftp_username }}
           password: ${{ secrets.ftp_password }}
-          local-dir: 'youtravel/dist/'
+          local-dir: "youtravel/dist/"
           protocol: ftps
           port: ${{ secrets.ftp_port }}

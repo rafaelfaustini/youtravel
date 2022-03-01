@@ -35,7 +35,9 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style lang="scss" scoped>
+@import "@/_variables.scss";
+
 .md-input {
 	position: relative !important;
 	display: block !important;
@@ -62,14 +64,14 @@ export default {
 }
 
 .md-input.theme-light input {
-	color: rgb(37, 37, 37) !important;
+	color: $text-color !important;
 	border-bottom: rgba(43, 42, 42, 0.75) solid 2px !important;
 	caret-color: rgb(19, 117, 228);
 	background-color: transparent !important;
 	transition: all 0.5s ease-in;
 }
 .md-input.theme-dark input {
-	color: white !important;
+	color: $dark-text-color !important;
 	border-bottom: rgba(255, 255, 255, 0.75) solid 2px !important;
 	caret-color: rgb(19, 117, 228);
 	background-color: transparent !important;
