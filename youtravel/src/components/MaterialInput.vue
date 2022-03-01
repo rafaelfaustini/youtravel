@@ -6,8 +6,15 @@
 			'theme-light': !dark,
 		}"
 	>
-		<input v-on:keyup.enter="enter" :id="idField" v-model="inputVal" required />
-		<label>{{ label }}</label>
+		<input
+			v-on:keyup.enter="enter"
+			:id="idField"
+			v-model="inputVal"
+			:autofocus="autofocus"
+			ref="searchInput"
+			required
+		/>
+		<label @click="onLabelClick">{{ label }}</label>
 	</div>
 </template>
 
@@ -20,6 +27,15 @@ export default {
 		value: String,
 		enter: Function,
 		dark: Boolean,
+		autofocus: {
+			type: Boolean,
+			default: false,
+		},
+	},
+	methods: {
+		onLabelClick() {
+			this.$refs.searchInput.focus();
+		},
 	},
 	computed: {
 		inputVal: {
