@@ -10,6 +10,7 @@
 							label="Search"
 							:enter="onSearch"
 							:dark="isDarkMode"
+							:autofocus="true"
 						></MaterialInput
 					></b-col>
 					<b-col lg="4">
@@ -88,7 +89,6 @@ export default {
 	},
 	mounted() {
 		this.onSearch = this.$refs.searchbutton.onSearch;
-		document.getElementById("searchBar").focus();
 	},
 	methods: {
 		google(language) {
@@ -137,7 +137,6 @@ export default {
 						language: lang,
 						engine: engine,
 					});
-					//window.open(url, "_blank");
 				});
 			});
 
