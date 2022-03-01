@@ -43,34 +43,9 @@
 						</div>
 					</b-col>
 				</b-row>
-				<b-row>
+				<b-row v-if="urls.length">
 					<b-col>
-						<div class="table-responsive" v-if="urls.length">
-							<table class="table table-bordered results">
-								<thead>
-									<tr>
-										<th scope="col">#</th>
-										<th scope="col">Engine</th>
-										<th scope="col">Language</th>
-										<th scope="col">Action</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr
-										scope="row"
-										v-for="(url, index) in this.urls"
-										:key="`${url.engine} - ${url.language.alpha2}`"
-									>
-										<td>
-											{{ index + 1 }}
-										</td>
-										<td>{{ getEngineName(url.engine) }}</td>
-										<td>{{ url.language.English }}</td>
-										<td><a :href="url.url" target="_blank">Visit</a></td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
+						<ResultTable :dark="isDarkMode" :urls="urls"></ResultTable>
 					</b-col>
 				</b-row>
 			</b-container>
@@ -89,9 +64,16 @@ import MaterialInput from "@/components/MaterialInput.vue";
 import LanguageSelect from "@/components/TravelYoutube/LanguageSelect.vue";
 import EngineSelect from "@/components/TravelYoutube/EngineSelect.vue";
 import SearchButton from "@/components/TravelYoutube/SearchButton.vue";
+import ResultTable from "../components/ResultTable.vue";
 export default {
 	name: "TravelYoutube",
-	components: { MaterialInput, LanguageSelect, EngineSelect, SearchButton },
+	components: {
+		MaterialInput,
+		LanguageSelect,
+		EngineSelect,
+		SearchButton,
+		ResultTable,
+	},
 	props: {
 		isDarkMode: Boolean,
 	},
@@ -109,18 +91,6 @@ export default {
 		document.getElementById("searchBar").focus();
 	},
 	methods: {
-		getEngineName(code) {
-			switch (code) {
-				case "1":
-					return "Google";
-				case "2":
-					return "Duck Duck Go";
-				case "3":
-					return "Yandex";
-				case "4":
-					return "Searx";
-			}
-		},
 		google(language) {
 			let searchText = new URLSearchParams(this.text).toString().slice(0, -1);
 			return `https://www.google.com/search?q=inurl%3Ayoutube.com+${searchText}&lr=lang_${language}`;

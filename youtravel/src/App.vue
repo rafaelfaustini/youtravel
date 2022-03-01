@@ -6,7 +6,9 @@
 	>
 		<div>
 			<b-navbar toggleable="lg" :type="navbarType" :variant="navbarVariant">
-				<b-navbar-brand href="#">YouTravel {{ version }}</b-navbar-brand>
+				<b-navbar-brand href="https://github.com/rafaelfaustini/youtravel/"
+					>YouTravel <b-badge>{{ version }}</b-badge></b-navbar-brand
+				>
 
 				<b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
