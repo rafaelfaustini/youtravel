@@ -1,3 +1,4 @@
-module.exports = {
-	publicPath: process.env.NODE_ENV === "production" ? "/youtravel/" : "./",
-};
+process.env.VUE_APP_PUBLIC_PATH =
+	process.env.NODE_ENV === "production" ? "/youtravel/" : "./";
+
+module.exports = {};

@@ -28,10 +28,9 @@ import VueRouter from "vue-router";
 Vue.use(VueRouter);
 
 import TravelYoutube from "./pages/TravelYoutube.vue";
-
 const router = new VueRouter({
 	mode: "history",
-	base: process.env.environment === "development" ? "/" : "/youtravel/",
+	base: process.env.VUE_APP_PUBLIC_PATH,
 	routes: [{ path: "/", component: TravelYoutube }],
 });
 
