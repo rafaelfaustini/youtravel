@@ -1,4 +1,6 @@
 process.env.VUE_APP_PUBLIC_PATH =
-	process.env.NODE_ENV === "production" ? "/youtravel/" : "./";
+	process.env.NODE_ENV === "production" || process.env.NODE_ENV === "staging"
+		? "/youtravel/"
+		: "./";
 
 module.exports = {};
